@@ -30,7 +30,7 @@
 
     String email = request.getParameter("email");
     String password = request.getParameter("password");
-    System.out.println("登录页传来的信息："+email+"  "+password);
+//    System.out.println("登录页传来的信息："+email+"  "+password);
     user.setEmail(email);
     user.setPassword(password);
 

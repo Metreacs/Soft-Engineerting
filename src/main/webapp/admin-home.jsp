@@ -11,6 +11,7 @@
     <title>管理员主页</title>
 </head>
 <body>
- <jsp:include page="admin-top.jsp">
+    <jsp:include page="admin-top.jsp"/>
+
 </body>
 </html>

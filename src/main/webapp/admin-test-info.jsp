@@ -1,17 +1,17 @@
 <%--
+  实现试卷信息的增删改查
   Created by IntelliJ IDEA.
   User: Wu Chuanjie
   Date: 2023/5/31
-  Time: 18:41
+  Time: 21:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>老师主页</title>
+    <title>Title</title>
 </head>
 <body>
-    <jsp:include page="teacher-top.jsp"/>
 
 </body>
 </html>
