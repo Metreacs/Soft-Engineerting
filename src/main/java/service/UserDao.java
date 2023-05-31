@@ -74,7 +74,7 @@ public class UserDao{
         list.add(user.getPassword());
         list.add(user.getEmail());
         list.add(user.getPhone());
-
+        System.out.println("注册信息为："+user);
         boolean flag = BaseDao.addUpdateDelete(sql,list.toArray());
         if(flag){
             return true;
@@ -142,7 +142,7 @@ public class UserDao{
      * @param userid
      * @return
      */
-    
+
     public User getUser(Integer userid) {
         Connection con = null;
         PreparedStatement ps = null;
@@ -163,7 +163,7 @@ public class UserDao{
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
                 user.setPhone(rs.getString("phone"));
-                user.setIden(rs.getInt("isadmin"));
+                user.setIden(rs.getInt("iden"));
 
                 return user;
             }
@@ -178,6 +178,45 @@ public class UserDao{
         return null;
     }
 
+    /**
+     * 根据邮箱来获取用户信息
+     * @param email
+     * @return
+     */
+    public User getUserByEmail(String email) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            // 1.连接数据库
+            con = BaseDao.getConnection();
+            // 2.预编译
+            String sql = "select * from user where email = ?";
+            ps = con.prepareStatement(sql);
+            ps.setObject(1,email);
+            // 3.执行sql
+            rs = ps.executeQuery();
+            while (rs.next()){
+                User user = new User();
+                user.setUserid(rs.getInt("userid"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
+                user.setIden(rs.getInt("iden"));
+
+                return user;
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            // 关闭资源，避免出现异常
+            BaseDao.close(con,ps,rs);
+        }
+        return null;
+    }
     /**
      * 管理员新增用户
      * @param user

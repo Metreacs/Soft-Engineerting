@@ -1,9 +1,8 @@
 <%@ page import="bean.User" %>
 <%@ page import="service.UserDao" %>
-
 <%--
   Created by IntelliJ IDEA.
-  User: Trump
+  User: Wu Chuanjie
   Date: 2023/5/30
   Time: 15:17
   To change this template use File | Settings | File Templates.
@@ -24,21 +23,26 @@
     String email=request.getParameter("email");
     String phone=request.getParameter("phone");
 
+
     //获取register.jsp页面提交的账号和密码设置到实体类User中
     user.setUsername(name);
     user.setPassword(password);
     user.setEmail(email);
     user.setPhone(phone);
-
     //引入数据交互层
     UserDao dao=new UserDao();
-    boolean flag=dao.register(user);
-
-    if(flag){
-        response.sendRedirect("login.jsp");
+    //检查邮箱是否已被使用
+    if(dao.getUserByEmail(email)!=null){
+        response.sendRedirect("register-fail.jsp");
     }else{
-        response.sendRedirect("register.jsp");
+        boolean flag=dao.register(user);
+        if(flag){
+            response.sendRedirect("register-success.jsp");
+        }else{
+            response.sendRedirect("register-fail.jsp");
+        }
     }
+
 %>
 </body>
 </html>

@@ -1,11 +1,31 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Wu Chuanjie
+  Date: 2023/5/31
+  Time: 21:10
+  To change this template use File | Settings | File Templates.
+--%>
+<%--
+  Created by IntelliJ IDEA.
+  User: Wu Chuanjie
+  Date: 2023/5/31
+  Time: 20:42
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    // 获取绝对路径路径 ,开发项目一定要使用绝对路径，不然肯定出错
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
+            + request.getServerPort() + path + "/";
+%>
 <!doctype html>
 <html>
 <head>
+    <base href="<%=basePath %>"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Untree.co">
-
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -19,7 +39,7 @@
     <link rel="stylesheet" href="static/css/flaticon.css">
     <link rel="stylesheet" href="static/css/aos.css">
     <link rel="stylesheet" href="static/css/style1.css">
-    <title>注册</title>
+    <title>注册成功</title>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 <jsp:include page="top.jsp"/>
@@ -28,30 +48,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <h2 class="heading">注册</h2>
-                    <form action="register-do.jsp" name="registerForm">
+                    <h2 class="heading">注册成功</h2>
+                    <form action="login.jsp" method="post">
                         <div class="form-field">
-                            <label for="name">姓名</label>
-                            <input type="text" class="form-control" name="name" id="name">
-                        </div>
-                        <div class="form-field">
-                            <label for="phone">电话</label>
-                            <input type="text" class="form-control" name="phone" id="phone">
-                        </div>
-                        <div class="form-field">
-                            <label for="email">邮箱</label>
-                            <input type="email" class="form-control" name="email" id="email">
-                        </div>
-                        <div class="form-field">
-                            <label for="password">密码</label>
-                            <input type="password" class="form-control" name="password" id="password">
-                        </div>
-                        <div class="form-field">
-                            <label for="repassword">确认密码</label>
-                            <input type="password" class="form-control" name="repassword" id="repassword">
-                        </div>
-                        <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="注册" onclick="return checkForm()">
+                            <input type="submit" class="btn btn-primary btn-block" value="前往登录">
                         </div>
                     </form>
                 </div>
@@ -112,8 +112,8 @@
                     <ul class="list-unstyled links mb-4">
                         <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
                         <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                        <li><a href="email-protection.jsp#0e676068614e63776a61636f6760206d6163"><span
-                                class="__cf_email__" data-cfemail="d8b1b6beb798b5a1bcb7b5b9b1b6f6bbb7b5">[email&#160;protected]</span></a>
+                        <li><a href="email-protection.jsp#6d04030b022d00140902000c0403430e0200"><span
+                                class="__cf_email__" data-cfemail="30595e565f705d49545f5d51595e1e535f5d">[email&#160;protected]</span></a>
                         </li>
                     </ul>
                 </div>
@@ -134,52 +134,23 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-<script src="static/js/jquery-3.4.1.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/jquery-migrate-3.0.1.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/popper.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/bootstrap.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/owl.carousel.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/jquery.easing.1.3.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/jquery.animateNumber.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/jquery.waypoints.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/jquery.fancybox.min.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/aos.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script src="static/js/custom.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script async="" src="static/js/js.js" type="ff78cc5bcbc6755a5150144f-text/javascript"></script>
-<script type="ff78cc5bcbc6755a5150144f-text/javascript">
+<script src="static/js/jquery-3.4.1.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/jquery-migrate-3.0.1.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/popper.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/bootstrap.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/owl.carousel.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/jquery.easing.1.3.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/jquery.animateNumber.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/jquery.waypoints.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/jquery.fancybox.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/aos.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script src="static/js/custom.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script async="" src="static/js/js.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
+<script type="04223ad77d6e5f1551e04c43-text/javascript">
     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-166033648-1");
 </script>
-<script src="static/js/rocket-loader.min.js" data-cf-settings="ff78cc5bcbc6755a5150144f-|49" defer=""></script>
-<script type="text/javascript">
-    function checkForm() {
-        var name = registerForm.name.value;
-        var pwd = registerForm.password.value;
-        var repwd = registerForm.repassword.value;
-        var email = registerForm.email.value;
-        //alert(name + pwd + repwd);
-        if (name == "" || name == null){
-            alert("请输入姓名");//弹出提示
-            registerForm.name.focus();//把鼠标焦点移到name里
-            return false;
-        }else if (email == "" || email == null) {
-            alert("请输入邮箱");
-            registerForm.email.focus();
-            return false;
-        }else if (pwd == "" || pwd == null) {
-            alert("请输入密码");
-            registerForm.password.focus();
-            return false;
-        } else if (repwd == "" || repwd == null) {
-            alert("请输入确认密码");
-            registerForm.repassword.focus();
-            return false;
-        } else if (pwd != repwd) {
-            alert("两次密码输入不一致，请重新输入!");
-            registerForm.repassword.focus();
-            return false;
-        }
-        return true;
-    }
-</script>
+<script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer=""></script>
 </body>
 </html>
+
+
