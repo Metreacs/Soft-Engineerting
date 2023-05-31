@@ -30,14 +30,12 @@
 
     String email = request.getParameter("email");
     String password = request.getParameter("password");
-
-    user.setUsername(email);
+    System.out.println("登录页传来的信息："+email+"  "+password);
+    user.setEmail(email);
     user.setPassword(password);
 
     // 获取用户登录信息
     User us = dao.login(user);
-
-
 
     System.out.println("----登录的用户信息----");
     System.out.println(us);

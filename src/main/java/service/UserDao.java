@@ -30,13 +30,13 @@ public class UserDao{
             // 1.获取数据库连接
             con = BaseDao.getConnection();
             // 2.写sql
-            String sql = "select * from user where email =? and password = ?";
+            String sql = "select * from user where email =? and password =?";
             // 3.预编译
             ps = con.prepareStatement(sql);
             // 4.设置值
             ps.setObject(1,user.getEmail());
             ps.setObject(2,user.getPassword());
-            rs = ps.executeQuery();//进行 查询
+            rs = ps.executeQuery();//进行查询
             User users = null;
             if(rs.next()){
                 users = new User();
