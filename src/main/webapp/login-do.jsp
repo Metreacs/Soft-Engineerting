@@ -50,7 +50,7 @@
     // 这里要对us判空处理，1是管理者，0是学生，此处的isadmin必须填写不能为空。
     if (us != null && us.getIden().equals(0)) {
         System.out.println("进入学生主页");
-        response.sendRedirect("user-home.jsp");
+        response.sendRedirect("student-home.jsp");
     } else if (us != null && us.getIden().equals(1)) {
         System.out.println("进入老师主页");
         response.sendRedirect("teacher-home.jsp");
