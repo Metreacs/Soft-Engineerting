@@ -1,21 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Wu Chuanjie
-  Date: 2023/5/31
-  Time: 22:08
+  User: 贺文轩
+  Date: 2023/6/1
+  Time: 21:12
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    // 获取绝对路径路径 ,开发项目一定要使用绝对路径，不然肯定出错
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-            + request.getServerPort() + path + "/";
-%>
-<!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <base href="<%=basePath %>"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Untree.co">
@@ -32,7 +24,7 @@
     <link rel="stylesheet" href="static/css/flaticon.css">
     <link rel="stylesheet" href="static/css/aos.css">
     <link rel="stylesheet" href="static/css/style1.css">
-    <title>在线考试</title>
+    <title>交卷成功</title>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 <jsp:include page="student-top.jsp"/>
@@ -41,18 +33,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <h2 class="heading">考试中</h2>
-                    <form action="student-test-do.jsp" method="post">
+                    <h2 class="heading">交卷成功</h2>
+                    <form action="student-home.jsp" method="post">
                         <div class="form-field">
-                            <label for="objective">客观题</label>
-                            <input type="text" class="form-control" name="objective" id="objective" autofocus="autofocus">
-                        </div>
-                        <div class="form-field">
-                            <label for="subjective">主观题</label>
-                            <input type="text" class="form-control" name="subjective" id="subjective">
-                        </div>
-                        <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="交卷">
+                            <input type="submit" class="btn btn-primary btn-block" value="回到主页">
                         </div>
                     </form>
                 </div>
@@ -153,4 +137,3 @@
 <script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer=""></script>
 </body>
 </html>
-
