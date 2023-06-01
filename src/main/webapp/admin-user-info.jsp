@@ -13,6 +13,6 @@
     <title>Title</title>
 </head>
 <body>
-
+<jsp:include page="admin-top.jsp"/>
 </body>
 </html>

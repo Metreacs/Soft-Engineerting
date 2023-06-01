@@ -47,7 +47,7 @@
             <a href="teacher-home.jsp" class="logo m-0 float-left">四、六级老师批改系统<span class="text-primary">.</span></a>
             <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
                 <%-- 主页放老师信息吧--%>
-                <li class="active"><a href="admin-home.jsp">主页</a></li>
+                <li class="active"><a href="teacher-home.jsp">主页</a></li>
                 <li><a href="teacher-rules.jsp">评分标准</a></li>
                 <li><a href="teacher-marking-online.jsp">在线批改</a></li>
             </ul>

@@ -46,7 +46,7 @@
         <div class="site-navigation">
             <a href="admin-home.jsp" class="logo m-0 float-left">四、六级后台管理系统<span class="text-primary">.</span></a>
             <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
-                <li class="active"><a href="teacher-home.jsp">主页</a></li>
+                <li class="active"><a href="admin-home.jsp">主页</a></li>
                 <li><a href="admin-user-info.jsp">用户信息</a></li>
                 <li><a href="admin-test-info.jsp">考试信息</a></li>
             </ul>
