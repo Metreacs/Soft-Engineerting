@@ -1,13 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Wu Chuanjie
-  Date: 2023/5/31
-  Time: 18:41
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="service.PaperDao" %>
+<%@ page import="bean.Paper" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    // 获取绝对路径路径 ,开发项目一定要使用绝对路径，不然肯定出错
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
+            + request.getServerPort() + path + "/";
+%>
+<!doctype html>
 <html>
 <head>
+    <base href="<%=basePath %>"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Untree.co">
@@ -24,9 +27,17 @@
     <link rel="stylesheet" href="static/css/flaticon.css">
     <link rel="stylesheet" href="static/css/aos.css">
     <link rel="stylesheet" href="static/css/style1.css">
-    <title>老师主页</title>
+    <title>判卷</title>
 </head>
-
+<%
+    // 设置接收的编码为UTF-8
+    request.setCharacterEncoding("utf-8");
+    Paper paper = new Paper();
+    PaperDao pDao = new PaperDao();
+    paper = pDao.getPaperByTimes();
+    Integer StudentID = paper.getStudentid();
+    String sub = paper.getSubjective();
+%>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 <jsp:include page="teacher-top.jsp"/>
 <div class="untree_co-login-register">
@@ -34,9 +45,15 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <form action="teacher-get-paper.jsp" method="post">
+                    <form action="teacher-submit-do.jsp" method="post">
                         <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="手动批阅">
+                            <label>主观题</label>
+                            <h2><%=sub%></h2>
+                            <input type="text" class="form-control" name="Grade" id="Grade">
+                        </div>
+                        <div class="form-field">
+                            <input type="hidden" name="StudentID" value="<%=StudentID%>">
+                            <input type="submit" class="btn btn-primary btn-block" value="提交">
                         </div>
                     </form>
                 </div>
