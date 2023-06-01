@@ -46,6 +46,7 @@
                         <div class="form-field">
                             <label >请检查邮箱是否已被注册！</label>
 
+
                         </div>
                         <div class="form-field">
                             <input type="submit" class="btn btn-primary btn-block" value="返回注册">

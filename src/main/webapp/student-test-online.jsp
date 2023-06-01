@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>正在考试</title>
 </head>
 <body>
 <jsp:include page="student-top.jsp"/>
