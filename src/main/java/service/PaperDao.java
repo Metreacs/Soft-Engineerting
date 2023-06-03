@@ -66,11 +66,12 @@ public class PaperDao {
     }
 
     public boolean writePaper(Paper paper){
-        String sql = "update paper set objective=?,subjective=? where studentid=?";
+        String sql = "update paper set objective=?,subjective=?,grade=? where studentid=?";
         List<Object> list = new ArrayList<Object>();
         System.out.println(paper);
         list.add(paper.getObjective());
         list.add(paper.getSubjective());
+        list.add(paper.getGrade());
         list.add(paper.getStudentid());
         boolean flag = BaseDao.addUpdateDelete(sql,list.toArray());
         if(flag){

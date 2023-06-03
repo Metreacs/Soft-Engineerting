@@ -1,4 +1,4 @@
-<%--
+<%@ page import="service.TextsDao" %><%--
   Created by IntelliJ IDEA.
   User: Wu Chuanjie
   Date: 2023/5/31
@@ -36,26 +36,49 @@
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 <jsp:include page="student-top.jsp"/>
-<div class="untree_co-login-register">
+<%
+    TextsDao tdao=new TextsDao();
+    Integer num=tdao.getTextNum();
+%>
+<div class="untree_co-section">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <h2 class="heading">考试中</h2>
-                    <form action="student-test-do.jsp" method="post">
+        <div class="row mb-5">
+            <div class="col-12 text-left" data-aos="fade-up" data-aos-delay="0">
+                <h2 class="heading">考试中</h2>
+                <form action="student-test-do.jsp" method="post">
+                    <h3>一、客观题（每题5分）</h3>
+                    <%
+                        for(int i=1;i<=num;i++){
+                            if(tdao.getTexts(i).getType()==0){
+                    %>
+                        <%=i%>、<%=tdao.getTexts(i).getQuestion()%><br>
+                        <input type="radio" name="<%=i%>" value="A">A、<%=tdao.getTexts(i).getChooseA()%><br>
+                        <input type="radio" name="<%=i%>" value="B">B、<%=tdao.getTexts(i).getChooseB()%><br>
+                        <input type="radio" name="<%=i%>" value="C">C、<%=tdao.getTexts(i).getChooseC()%><br>
+                        <input type="radio" name="<%=i%>" value="D">D、<%=tdao.getTexts(i).getChooseD()%><br>
+
+                    <%}%>
+                    <%}%>
+                    <h3>二、主观题（每题5分）</h3>
+                    <%
+                        for(int i=1;i<=num;i++){
+                            if(tdao.getTexts(i).getType()==1){
+                    %>
+                    <div class="container">
+                        <%=i%>、<%=tdao.getTexts(i).getQuestion()%><br>
                         <div class="form-field">
-                            <label for="objective">客观题</label>
-                            <input type="text" class="form-control" name="objective" id="objective" autofocus="autofocus">
-                        </div>
-                        <div class="form-field">
-                            <label for="subjective">主观题</label>
-                            <input type="text" class="form-control" name="subjective" id="subjective">
-                        </div>
-                        <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="交卷">
-                        </div>
-                    </form>
-                </div>
+                            <label for="subjective">在下面填入你的答案</label>
+                            <input type="text" class="form-control" name="<%=i%>" id="subjective">
+                        </div><br>
+                        <%
+                            }
+                        %>
+                    </div>
+                    <%}%>
+                    <div align="center" class="form-field">
+                        <input type="submit" class="btn btn-primary btn-block" value="交卷" style= "height:50px;width:120px ">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

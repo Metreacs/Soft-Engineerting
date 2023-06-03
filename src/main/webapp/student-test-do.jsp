@@ -1,6 +1,8 @@
 <%@ page import="bean.Paper" %>
 <%@ page import="bean.User" %>
+<%@ page import="bean.Texts" %>
 <%@ page import="service.PaperDao" %>
+<%@ page import="service.TextsDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: 贺文轩
@@ -22,13 +24,39 @@
     if(user == null){
         response.sendRedirect("login.jsp");
     }
+    TextsDao tdao=new TextsDao();
+    Integer num=tdao.getTextNum();
     System.out.println(user);
-    String objective = request.getParameter("objective");
-    String subjective = request.getParameter("subjective");
+    String objective="";
+    Integer score=0;
+    for (int i=1;i<=num;i++){
+        if(tdao.getTexts(i).getType()==0){
+            String textans=request.getParameter(String.valueOf(i));
+            System.out.println(textans);
+            System.out.println(tdao.getTexts(i).getAnswer());
+            if(tdao.getTexts(i).getAnswer().equals(textans)){
+                score+=5;
+            }
+            objective+=textans;
+
+        }
+    }
+    String subjective="";
+    for (int i=1;i<=num;i++){
+        if(tdao.getTexts(i).getType()==1){
+            String textans=request.getParameter(String.valueOf(i));
+            System.out.println(textans);
+            subjective+=textans+'\n';
+
+        }
+    }
+    //String objective = request.getParameter("objective");
+    //String subjective = request.getParameter("subjective");
 //    System.out.println("登录页传来的信息："+email+"  "+password);
     paper.setStudentid(user.getUserid());
     paper.setObjective(objective);
     paper.setSubjective(subjective);
+    paper.setGrade(score);
     System.out.println(paper);
     PaperDao pDao=new PaperDao();
     boolean flag=pDao.writePaper(paper);
