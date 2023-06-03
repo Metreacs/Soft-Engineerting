@@ -62,7 +62,7 @@
 -->
                 <li><a href="#features-section" class="nav-link">项目介绍</a></li>
                 <li><a href="#pricing-section" class="nav-link">CET笔试</a></li>
-                <li><a href="#about-section" class="nav-link>CET口试</a></li>
+                <li><a href="#about-section" class="nav-link">CET口试</a></li>
                 <li><a href="#contact-section" class="nav-link">联系我们</a></li>
             </ul>
             <ul class="js-clone-nav d-none mt-1 d-lg-inline-block site-menu float-right">
