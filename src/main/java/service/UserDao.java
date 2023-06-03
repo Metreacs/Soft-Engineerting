@@ -223,7 +223,7 @@ public class UserDao{
      * @param username
      * @return
      */
-    public User getUserByUsername(String email) {
+    public User getUserByUsername(String username) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -233,7 +233,7 @@ public class UserDao{
             // 2.预编译
             String sql = "select * from user where username = ?";
             ps = con.prepareStatement(sql);
-            ps.setObject(1,email);
+            ps.setObject(1,username);
             // 3.执行sql
             rs = ps.executeQuery();
             while (rs.next()){
@@ -287,14 +287,14 @@ public class UserDao{
      */
     
     public boolean updateUser(User user) {
-        String sql = "update user set password=?,email=?,phone=?,isadmin=? where userid=?";
+        String sql = "update user set password=?,email=?,phone=?,username=? where userid=?";
         List<Object> list = new ArrayList<Object>();
         list.add(user.getPassword());
         list.add(user.getEmail());
         list.add(user.getPhone());
-        list.add(user.getIden());
+        list.add(user.getUsername());
         list.add(user.getUserid());
-
+        System.out.println(user);
         boolean flag = BaseDao.addUpdateDelete(sql,list.toArray());
         if(flag){
             return true;
