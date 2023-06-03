@@ -1,49 +1,52 @@
 <%--
   Created by IntelliJ IDEA.
-  实现用户信息的增删改查
-  User: Wu Chuanjie
-  Date: 2023/5/31
-  Time: 21:56
+  User: sokoface
+  Date: 2023/6/3
+  Time: 00:08
   To change this template use File | Settings | File Templates.
-
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Untree.co">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="static/css/css2.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="static/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/flaticon.css">
-    <link rel="stylesheet" href="static/css/aos.css">
-    <link rel="stylesheet" href="static/css/style1.css">
-    <title>用户信息</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="static/css/css2.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="static/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/flaticon.css">
+  <link rel="stylesheet" href="static/css/aos.css">
+  <link rel="stylesheet" href="static/css/style1.css">
+  <title>用户查找</title>
 </head>
 <body>
 <jsp:include page="admin-top.jsp"/>
 <div class="untree_co-login-register">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <form action="admin-search-branch.jsp" method="post">
-                        <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="查询用户">
-                        </div>
-                    </form>
-                </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
+          <h2 class="heading">查询用户信息</h2>
+          <form action="admin-search-email.jsp" method="post">
+            <div class="form-field">
+              <label for="email">按邮箱查找</label>
+              <input type="email" class="form-control" name="email" id="email" autofocus="autofocus">
             </div>
+            <div class="form-field">
+              <input type="submit" class="btn btn-primary btn-block" value="查找">
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <script src="static/js/jquery-3.4.1.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>
 <script src="static/js/jquery-migrate-3.0.1.min.js" type="04223ad77d6e5f1551e04c43-text/javascript"></script>

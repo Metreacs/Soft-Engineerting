@@ -1,11 +1,11 @@
+<%@ page import="service.UserDao" %>
+<%@ page import="bean.User" %>
 <%--
   Created by IntelliJ IDEA.
-  实现用户信息的增删改查
-  User: Wu Chuanjie
-  Date: 2023/5/31
-  Time: 21:56
+  User: sokoface
+  Date: 2023/6/3
+  Time: 00:15
   To change this template use File | Settings | File Templates.
-
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -28,6 +28,20 @@
     <link rel="stylesheet" href="static/css/style1.css">
     <title>用户信息</title>
 </head>
+<%
+    // 设置接收的编码为UTF-8
+    request.setCharacterEncoding("utf-8");
+    String email=request.getParameter("email");
+    User user = new User();
+    UserDao dao = new UserDao();
+    user = dao.getUserByEmail(email);
+    Integer userid = user.getUserid();
+    String username = user.getUsername();
+    String password = user.getPassword();
+    String phone = user.getPhone();
+
+
+%>
 <body>
 <jsp:include page="admin-top.jsp"/>
 <div class="untree_co-login-register">
@@ -35,9 +49,21 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <form action="admin-search-branch.jsp" method="post">
+                    <form action="admin-user-info.jsp" method="post">
                         <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="查询用户">
+                            <label>用户id</label>
+                            <h2><%=userid%></h2>
+                            <label>用户名</label>
+                            <h2><%=username%></h2>
+                            <label>用户密码</label>
+                            <h2><%=password%></h2>
+                            <label>邮箱</label>
+                            <h2><%=email%></h2>
+                            <label>电话</label>
+                            <h2><%=phone%></h2>
+                        </div>
+                        <div class="form-field">
+                            <input type="submit" class="btn btn-primary btn-block" value="返回">
                         </div>
                     </form>
                 </div>

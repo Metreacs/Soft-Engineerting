@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Wu Chuanjie
-  Date: 2023/5/31
-  Time: 18:41
+  User: sokoface
+  Date: 2023/6/2
+  Time: 22:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="static/css/flaticon.css">
     <link rel="stylesheet" href="static/css/aos.css">
     <link rel="stylesheet" href="static/css/style1.css">
-    <title>管理员主页</title>
+    <title>添加试卷</title>
 </head>
 <body>
     <jsp:include page="admin-top.jsp"/>
@@ -33,9 +33,43 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                        <form action="admin-release-paper.jsp" method="post">
+                        <h2 class="heading">添加试卷</h2>
+                        <form action="admin-release-do.jsp" method="post">
                             <div class="form-field">
-                                <input type="submit" class="btn btn-primary btn-block" value="添加试卷">
+                                <label for="type">题目类型（0客观题，1主观题）</label>
+                                <input type="type" class="form-control" name="type" id="type" autofocus="autofocus">
+                            </div>
+                            <div class="form-field">
+                                <label for="question">题目</label>
+                                <input type="question" class="form-control" name="question" id="question">
+                            </div>
+                            <div class="form-field">
+                                <label for="choosea">选项A</label>
+                                <input type="choosea" class="form-control" name="choosea" id="choosea">
+                            </div>
+                            <div class="form-field">
+                                <label for="chooseb">选项B</label>
+                                <input type="chooseb" class="form-control" name="chooseb" id="chooseb">
+                            </div>
+                            <div class="form-field">
+                                <label for="choosec">选项C</label>
+                                <input type="choosec" class="form-control" name="choosec" id="choosec">
+                            </div>
+                            <div class="form-field">
+                                <label for="choosed">选项D</label>
+                                <input type="choosed" class="form-control" name="choosed" id="choosed">
+                            </div>
+                            <div class="form-field">
+                                <label for="answer">答案</label>
+                                <input type="answer" class="form-control" name="answer" id="answer">
+                            </div>
+                            <div class="form-field">
+                                <input type="submit" class="btn btn-primary btn-block" value="提交">
+                            </div>
+                        </form>
+                        <form action="admin-home.jsp" method="post">
+                            <div class="form-field">
+                                <input type="submit" class="btn btn-primary btn-block" value="结束出卷">
                             </div>
                         </form>
                     </div>
