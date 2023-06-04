@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Wu Chuanjie
-  Date: 2023/5/31
-  Time: 18:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,24 +17,38 @@
     <link rel="stylesheet" href="static/css/flaticon.css">
     <link rel="stylesheet" href="static/css/aos.css">
     <link rel="stylesheet" href="static/css/style1.css">
-    <title>老师主页</title>
+    <title>编辑个人信息</title>
 </head>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
-<jsp:include page="teacher-top.jsp"/>
+<body>
 <div class="untree_co-login-register">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-                    <form action="teacher-get-paper.jsp" method="post">
+                    <h2 class="heading">编辑个人信息</h2>
+                    <form action="teacher-modify-info-do.jsp" name="registerForm">
                         <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="手动批阅">
+                            <label for="name">姓名</label>
+                            <input type="text" class="form-control" name="name" id="name">
                         </div>
-                    </form>
-                    <form action="teacher-view-info.jsp" method="post">
                         <div class="form-field">
-                            <input type="submit" class="btn btn-primary btn-block" value="修改信息">
+                            <label for="phone">电话</label>
+                            <input type="text" class="form-control" name="phone" id="phone">
+                        </div>
+                        <div class="form-field">
+                            <label for="email">邮箱</label>
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="form-field">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="form-field">
+                            <label for="repassword">确认密码</label>
+                            <input type="password" class="form-control" name="repassword" id="repassword">
+                        </div>
+                        <div class="form-field">
+                            <input type="submit" class="btn btn-primary btn-block" value="确定" onclick="return checkForm()">
                         </div>
                     </form>
                 </div>
@@ -65,5 +72,6 @@
     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-166033648-1");
 </script>
 <script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer=""></script>
+
 </body>
 </html>
