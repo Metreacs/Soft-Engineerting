@@ -40,6 +40,11 @@
                             <input type="submit" class="btn btn-primary btn-block" value="查询用户">
                         </div>
                     </form>
+                    <form action="admin-user-add.jsp" method="post">
+                        <div class="form-field">
+                            <input type="submit" class="btn btn-primary btn-block" value="新增用户">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
