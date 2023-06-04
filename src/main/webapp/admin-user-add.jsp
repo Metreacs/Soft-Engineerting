@@ -79,7 +79,8 @@
 <script type="04223ad77d6e5f1551e04c43-text/javascript">
     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-166033648-1");
 </script>
-<script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer="">
+<script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer=""></script>
+<script type="text/javascript">
   function checkForm() {
     var name = registerForm.name.value;
     var pwd = registerForm.password.value;
@@ -110,6 +111,5 @@
     return true;
   }
 </script>
-
 </body>
 </html>

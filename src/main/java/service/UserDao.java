@@ -321,4 +321,23 @@ public class UserDao{
             return false;
         }
     }
+
+    /**
+     * 根据用户名删除用户
+     * @param username
+     * @return
+     */
+
+    public boolean deleteUserbyName(String username) {
+        String sql = "delete from user where username=?";
+        List<Object> list = new ArrayList<Object>();
+        list.add(username);
+
+        boolean flag = BaseDao.addUpdateDelete(sql,list.toArray());
+        if(flag){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
