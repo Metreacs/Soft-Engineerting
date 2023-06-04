@@ -35,7 +35,7 @@
             <div class="col-lg-5">
                 <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
                     <h2 class="heading">修改失败</h2>
-                    <form action="student-enroll.jsp" method="post">
+                    <form action="teacher-home.jsp.jsp" method="post">
                         <div class="form-field">
                             <input type="submit" class="btn btn-primary btn-block" value="返回主页">
                         </div>

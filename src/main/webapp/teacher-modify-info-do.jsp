@@ -17,7 +17,6 @@
     String email=request.getParameter("email");
     String phone=request.getParameter("phone");
 
-
     //获取register.jsp页面提交的账号和密码设置到实体类User中
     user.setUsername(name);
     user.setPassword(password);
@@ -29,9 +28,9 @@
     //检查邮箱是否已被使用
     boolean flag=dao.updateUser(user);
     if(flag){
-        response.sendRedirect("student-info-update-success.jsp");
+        response.sendRedirect("teacher-modify-info-success.jsp");
     }else{
-        response.sendRedirect("student-info-update-fail.jsp");
+        response.sendRedirect("teacher-modify-info-fail.jsp");
     }
 
 %>
