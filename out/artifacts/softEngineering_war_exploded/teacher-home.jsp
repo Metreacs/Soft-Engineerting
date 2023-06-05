@@ -39,6 +39,11 @@
                             <input type="submit" class="btn btn-primary btn-block" value="手动批阅">
                         </div>
                     </form>
+                    <form action="teacher-view-info.jsp" method="post">
+                        <div class="form-field">
+                            <input type="submit" class="btn btn-primary btn-block" value="修改信息">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

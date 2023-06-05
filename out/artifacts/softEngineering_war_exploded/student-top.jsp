@@ -49,7 +49,7 @@
                <%-- 主页放学生信息吧--%>
                 <li class="active"><a href="student-home.jsp">主页</a></li>
                 <li><a href="student-enroll.jsp">报名</a></li>
-                <li><a href="student-grade-info.jsp">我的成绩</a></li>
+                <li><a href="student-info.jsp">我的成绩</a></li>
                 <li><a href="student-test-online.jsp">在线答题</a></li>
             </ul>
             <ul class="js-clone-nav d-none mt-1 d-lg-inline-block site-menu float-right">

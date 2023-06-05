@@ -34,7 +34,7 @@
       <div class="col-lg-5">
         <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
           <h2 class="heading">查询用户信息</h2>
-          <form action="admin-search-username.jsp" method="post">
+          <form action="admin-search-userid.jsp" method="post">
             <div class="form-field">
               <label for="userid">按用户编号查找</label>
               <input type="userid" class="form-control" name="userid" id="userid" autofocus="autofocus">

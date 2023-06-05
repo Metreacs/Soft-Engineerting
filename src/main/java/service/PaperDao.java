@@ -19,7 +19,7 @@ public class PaperDao {
      */
     public boolean studentEnroll(Paper paper){
 
-        String sql = "insert into paper values (0,?,NULL,NULL,0,3)";
+        String sql = "insert into paper values (0,?,NULL,NULL,0,1,0)";
         List<Object> list = new ArrayList<Object>();
         list.add(paper.getStudentid());
         System.out.println("注册信息为："+paper);
@@ -50,7 +50,8 @@ public class PaperDao {
                 paper.setPaperid(rs.getInt("paperid"));
                 paper.setSubjective(rs.getString("subjective"));
                 paper.setObjective(rs.getString("objective"));
-                paper.setGrade(rs.getInt("grade"));
+                paper.setOb_grade(rs.getInt("ob_grade"));
+                paper.setSub_grade(rs.getInt("sub_grade"));
                 paper.setTimes(rs.getInt("times"));
                 return paper;
             }
@@ -66,12 +67,12 @@ public class PaperDao {
     }
 
     public boolean writePaper(Paper paper){
-        String sql = "update paper set objective=?,subjective=?,grade=? where studentid=?";
+        String sql = "update paper set objective=?,subjective=?,ob_grade=? where studentid=?";
         List<Object> list = new ArrayList<Object>();
         System.out.println(paper);
         list.add(paper.getObjective());
         list.add(paper.getSubjective());
-        list.add(paper.getGrade());
+        list.add(paper.getOb_grade());
         list.add(paper.getStudentid());
         boolean flag = BaseDao.addUpdateDelete(sql,list.toArray());
         if(flag){
@@ -99,7 +100,8 @@ public class PaperDao {
                 paper.setPaperid(rs.getInt("paperid"));
                 paper.setSubjective(rs.getString("subjective"));
                 paper.setObjective(rs.getString("objective"));
-                paper.setGrade(rs.getInt("grade"));
+                paper.setOb_grade(rs.getInt("ob_grade"));
+                paper.setSub_grade(rs.getInt("sub_grade"));
                 paper.setTimes(rs.getInt("times"));
                 return paper;
             }

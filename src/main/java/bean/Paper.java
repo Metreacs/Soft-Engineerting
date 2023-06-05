@@ -5,7 +5,8 @@ public class Paper {
     private Integer studentid;
     private String objective;
     private String subjective;
-    private Integer grade;
+    private Integer ob_grade;
+    private Integer sub_grade;
     private Integer times;
 
     public Integer getPaperid() {
@@ -40,12 +41,20 @@ public class Paper {
         this.subjective = subjective;
     }
 
-    public Integer getGrade() {
-        return grade;
+    public Integer getOb_grade() {
+        return ob_grade;
     }
 
-    public void setGrade(Integer grade) {
-        this.grade = grade;
+    public void setOb_grade(Integer ob_grade) {
+        this.ob_grade = ob_grade;
+    }
+
+    public Integer getSub_grade() {
+        return sub_grade;
+    }
+
+    public void setSub_grade(Integer sub_grade) {
+        this.sub_grade = sub_grade;
     }
 
     public Integer getTimes() {
@@ -56,6 +65,7 @@ public class Paper {
         this.times = times;
     }
 
+
     @Override
     public String toString() {
         return "Paper{" +
@@ -63,8 +73,9 @@ public class Paper {
                 ", studentid=" + studentid +
                 ", objective='" + objective + '\'' +
                 ", subjective='" + subjective + '\'' +
-                ", grade=" + grade +
+                ", ob_grade=" + ob_grade +
+                ", sub_grade=" + sub_grade +
+                ", times=" + times +
                 '}';
     }
-
 }

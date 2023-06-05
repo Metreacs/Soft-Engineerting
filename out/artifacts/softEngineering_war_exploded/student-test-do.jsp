@@ -56,7 +56,7 @@
     paper.setStudentid(user.getUserid());
     paper.setObjective(objective);
     paper.setSubjective(subjective);
-    paper.setGrade(score);
+    paper.setOb_grade(score);
     System.out.println(paper);
     PaperDao pDao=new PaperDao();
     boolean flag=pDao.writePaper(paper);

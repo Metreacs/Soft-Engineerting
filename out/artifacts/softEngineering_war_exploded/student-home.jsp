@@ -43,7 +43,12 @@
                             <input type="submit" class="btn btn-primary btn-block" value="考试">
                         </div>
                     </form>
-                    <form action="student-grade-info.jsp" method="post">
+                    <form action="student-grade-enquire.jsp" method="post">
+                        <div class="form-field">
+                            <input type="submit" class="btn btn-primary btn-block" value="成绩查询">
+                        </div>
+                    </form>
+                    <form action="student-info.jsp" method="post">
                         <div class="form-field">
                             <input type="submit" class="btn btn-primary btn-block" value="编辑信息">
                         </div>
