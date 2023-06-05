@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2023-06-01 22:15:30
+Date: 2023-06-05 09:11:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,8 +24,9 @@ CREATE TABLE `paper` (
   `studentid` int(11) NOT NULL,
   `objective` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `subjective` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `grade` int(11) DEFAULT NULL,
+  `ob_grade` int(11) DEFAULT NULL,
   `times` int(11) NOT NULL,
+  `sub_grade` int(11) DEFAULT NULL,
   PRIMARY KEY (`paperid`),
   KEY `studentid` (`studentid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
