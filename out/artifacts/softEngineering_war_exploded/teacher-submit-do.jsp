@@ -11,10 +11,10 @@
     request.setCharacterEncoding("utf-8");
     String studentID = request.getParameter("StudentID");
     String grade = request.getParameter("Grade");
-    PaperDao pDao=new PaperDao();
+    PaperDao pDao = new PaperDao();
     System.out.println(studentID);
     System.out.println(grade);
-    boolean flag=pDao.markScore(Integer.parseInt(studentID), Integer.parseInt(grade));
+    boolean flag = pDao.markScore(Integer.parseInt(studentID), Integer.parseInt(grade));
     if(flag){
         System.out.println("success");
         response.sendRedirect("teacher-submit-success.jsp");

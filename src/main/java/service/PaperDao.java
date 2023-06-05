@@ -117,7 +117,7 @@ public class PaperDao {
     }
 
     public boolean markScore(Integer studentID, Integer grade){
-        String sql = "UPDATE paper SET grade=grade+?, times=times-1 WHERE (studentid=?)";
+        String sql = "UPDATE paper SET sub_grade=(sub_grade*(3-times)/(4-times))+(?*1/(4-times)), times=times-1 WHERE (studentid=?)";
         List<Object> list = new ArrayList<Object>();
         list.add(grade);
         list.add(studentID);
