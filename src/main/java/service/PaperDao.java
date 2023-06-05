@@ -117,9 +117,14 @@ public class PaperDao {
     }
 
     public boolean markScore(Integer studentID, Integer grade){
-        String sql = "UPDATE paper SET grade=grade+?, times=times-1 WHERE (studentid=?)";
+        PaperDao pDao=new PaperDao();
+        Paper paper = pDao.getPaperByStuid(studentID);
+        Integer times=paper.getTimes();
+        Integer newGrade=(paper.getSub_grade()*(3-times)+grade)/(4-times);
+        System.out.println(newGrade);
+        String sql = "UPDATE paper SET sub_grade=?, times=times-1 WHERE (studentid=?)";
         List<Object> list = new ArrayList<Object>();
-        list.add(grade);
+        list.add(newGrade);
         list.add(studentID);
         boolean flag = BaseDao.addUpdateDelete(sql,list.toArray());
         if(flag){
