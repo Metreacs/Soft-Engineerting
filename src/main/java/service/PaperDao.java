@@ -19,7 +19,7 @@ public class PaperDao {
      */
     public boolean studentEnroll(Paper paper){
 
-        String sql = "insert into paper values (0,?,NULL,NULL,0,1,0)";
+        String sql = "insert into paper values (0,?,NULL,NULL,0,3,0)";
         List<Object> list = new ArrayList<Object>();
         list.add(paper.getStudentid());
         System.out.println("注册信息为："+paper);
