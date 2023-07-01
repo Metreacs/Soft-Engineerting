@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>注册中...</title>
+  <title>修改中...</title>
 </head>
 <body>
 <%
@@ -18,13 +18,15 @@
   request.setCharacterEncoding("UTF-8");
   User user=new User();
   //获取register.jsp页面提交的账号和密码
-  String name=request.getParameter("name");
+  String str_userid=request.getParameter("userid");
+  Integer userid = Integer.parseInt(str_userid);
+  String name=request.getParameter("username");
   String password=request.getParameter("password");
   String email=request.getParameter("email");
   String phone=request.getParameter("phone");
 
 
-  //获取register.jsp页面提交的账号和密码设置到实体类User中
+  user.setUserid(userid);
   user.setUsername(name);
   user.setPassword(password);
   user.setEmail(email);
@@ -35,15 +37,16 @@
   if(dao.getUserByEmail(email)!=null){
     response.sendRedirect("register-fail.jsp");
   }else{
-    boolean flag=dao.register(user);
+    boolean flag=dao.updateUser(user);
     if(flag){
     }else{
       response.sendRedirect("register-fail.jsp");
     }
   }
+
 %>
 <script type="text/javascript" language="javascript">
-  alert("新增成功！");
+  alert("修改成功！");
   window.document.location.href="admin-user-info.jsp";
 </script>
 </body>

@@ -66,6 +66,16 @@
                             <input type="submit" class="btn btn-primary btn-block" value="返回">
                         </div>
                     </form>
+                    <form action="admin-user-info.jsp" method="post">
+                        <div class="form-field">
+                            <a href="#" class="btn btn-primary btn-block" onclick="doDelete(<%=userid%>);return false;">删除用户</a>
+                        </div>
+                    </form>
+                    <form action="admin-user-info.jsp" method="post">
+                        <div class="form-field">
+                            <a href="#" class="btn btn-primary btn-block" onclick="doUpdate(<%=userid%>);return false;">修改用户信息</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -87,5 +97,18 @@
     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-166033648-1");
 </script>
 <script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer=""></script>
+<script type="text/javascript">
+    function doDelete(sid){
+        var flag = confirm("是否确认删除？");
+        if(flag){
+            window.location.href="admin-do-delete.jsp?userid="+sid;
+        }
+    }
+</script>
+<script type="text/javascript">
+    function doUpdate(sid){
+        window.location.href="admin-update-info.jsp?userid="+sid;
+    }
+</script>
 </body>
 </html>

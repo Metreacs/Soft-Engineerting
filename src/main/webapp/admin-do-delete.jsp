@@ -12,23 +12,25 @@
     <title>删除用户</title>
 </head>
 <body>
+
+<%
+  // 获取绝对路径路径 ,开发项目一定要使用绝对路径，不然肯定出错
+  String path = request.getContextPath();
+  String basePath = request.getScheme() + "://" + request.getServerName() + ":"
+          + request.getServerPort() + path + "/";
+%>
 <%
   request.setCharacterEncoding("UTF-8");
-  String username="";
-  request.getParameter("username");
   Integer userid =0 ;
-  request.getParameter("userid");
+  String str_userid;
+  str_userid=request.getParameter("userid");
+  userid = Integer.parseInt(str_userid);
   UserDao dao = new UserDao();
-  if(userid==0 && username!="") {
-    boolean flag = dao.deleteUserbyName(username);
-    if (flag) {
-    } else {
-      response.sendRedirect("admin-delete-fail.jsp");
-    }
-  }
-  else if(userid!=0 && username=="") {
+  System.out.println(userid);
+  if(userid!=0) {
     boolean flag = dao.deleteUser(userid);
     if (flag) {
+      System.out.println("按用户id删除");
     } else {
       response.sendRedirect("admin-delete-fail.jsp");
     }

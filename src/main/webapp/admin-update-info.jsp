@@ -1,10 +1,8 @@
-<%@ page import="service.UserDao" %>
-<%@ page import="bean.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: sokoface
-  Date: 2023/6/3
-  Time: 00:15
+  Date: 2023/6/4
+  Time: 17:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,52 +24,52 @@
   <link rel="stylesheet" href="static/css/flaticon.css">
   <link rel="stylesheet" href="static/css/aos.css">
   <link rel="stylesheet" href="static/css/style1.css">
-    <title>用户信息</title>
+  <title>修改用户信息</title>
 </head>
-<%
-  // 设置接收的编码为UTF-8
-  request.setCharacterEncoding("utf-8");
-  String username=request.getParameter("username");
-  User user = new User();
-  UserDao dao = new UserDao();
-  user = dao.getUserByUsername(username);
-  Integer userid = user.getUserid();
-  String password = user.getPassword();
-  String email = user.getEmail();
-  String phone = user.getPhone();
-%>
 <body>
 <jsp:include page="admin-top.jsp"/>
+<%
+    request.setCharacterEncoding("UTF-8");
+    Integer userid =0 ;
+    String str_userid;
+    str_userid=request.getParameter("userid");
+    userid = Integer.parseInt(str_userid);
+%>
 <div class="untree_co-login-register">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5">
         <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
-          <form action="admin-user-info.jsp" method="post">
+          <h2 class="heading">修改用户信息</h2>
+          <form action="admin-do-update.jsp" method="post" name="updateForm">
             <div class="form-field">
               <label>用户编号</label>
-              <h2><%=userid%></h2>
-              <label>用户名</label>
-              <h2><%=username%></h2>
-              <label>用户密码</label>
-              <h2><%=password%></h2>
-              <label>邮箱</label>
-              <h2><%=email%></h2>
-              <label>电话</label>
-              <h2><%=phone%></h2>
+              <h2><%=userid%>
+              </h2>
+              <input type="hidden" name="userid" value="<%=userid%>">
             </div>
             <div class="form-field">
-              <input type="submit" class="btn btn-primary btn-block" value="返回">
+              <label for="username">用户名</label>
+              <input type="username" class="form-control" name="username" id="username" autofocus="autofocus">
             </div>
-          </form>
-          <form action="admin-user-info.jsp" method="post">
             <div class="form-field">
-              <a href="#" class="btn btn-primary btn-block" onclick="doDelete(<%=userid%>);return false;">删除用户</a>
+              <label for="email">邮箱</label>
+              <input type="email" class="form-control" name="email" id="email" autofocus="autofocus">
             </div>
-          </form>
-          <form action="admin-user-info.jsp" method="post">
             <div class="form-field">
-              <a href="#" class="btn btn-primary btn-block" onclick="doUpdate(<%=userid%>);return false;">修改用户信息</a>
+              <label for="phone">电话</label>
+              <input type="phone" class="form-control" name="phone" id="phone" autofocus="autofocus">
+            </div>
+            <div class="form-field">
+              <label for="password">密码</label>
+              <input type="password" class="form-control" name="password" id="password" autofocus="autofocus">
+            </div>
+            <div class="form-field">
+              <label for="password">确认密码</label>
+              <input type="repassword" class="form-control" name="repassword" id="repassword" autofocus="autofocus">
+            </div>
+            <div class="form-field">
+              <input type="submit" class="btn btn-primary btn-block" value="提交信息" onclick="return checkForm()">
             </div>
           </form>
         </div>
@@ -96,16 +94,34 @@
 </script>
 <script src="static/js/rocket-loader.min.js" data-cf-settings="04223ad77d6e5f1551e04c43-|49" defer=""></script>
 <script type="text/javascript">
-function doDelete(sid){
-  var flag = confirm("是否确认删除？");
-  if(flag){
-    window.location.href="admin-do-delete.jsp?userid="+sid;
-  }
-}
-</script>
-<script type="text/javascript">
-  function doUpdate(sid){
-    window.location.href="admin-update-info.jsp?userid="+sid;
+  function checkForm() {
+    var name = registerForm.name.value;
+    var pwd = registerForm.password.value;
+    var repwd = registerForm.repassword.value;
+    var email = registerForm.email.value;
+    //alert(name + pwd + repwd);
+    if (name == "" || name == null){
+      alert("请输入姓名");//弹出提示
+      registerForm.name.focus();//把鼠标焦点移到name里
+      return false;
+    }else if (email == "" || email == null) {
+      alert("请输入邮箱");
+      registerForm.email.focus();
+      return false;
+    }else if (pwd == "" || pwd == null) {
+      alert("请输入密码");
+      registerForm.password.focus();
+      return false;
+    } else if (repwd == "" || repwd == null) {
+      alert("请输入确认密码");
+      registerForm.repassword.focus();
+      return false;
+    } else if (pwd != repwd) {
+      alert("两次密码输入不一致，请重新输入!");
+      registerForm.repassword.focus();
+      return false;
+    }
+    return true;
   }
 </script>
 </body>
